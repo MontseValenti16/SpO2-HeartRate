@@ -7,10 +7,8 @@
 #include <ArduinoJson.h>
 
 // Configuración del WiFi
-const char* ssid = "Magic5";
-const char* password = "MiguelGtz";
 
-const char* serverUrl = "http://192.168.1.104:8080/movements"; 
+const char* serverUrl = "http://13.217.180.236:8081/max30102/"; 
 
 
 
@@ -23,7 +21,7 @@ MAX30105 particleSensor;
 byte pulseLED = 13; // LED de pulso (puedes cambiar el pin si lo deseas)
 byte readLED = 2;   // LED para indicar la lectura de datos (puedes cambiar el pin)
 
-#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+#if defined(AVR_ATmega328P) || defined(AVR_ATmega168)
 // Arduino Uno no tiene suficiente SRAM para almacenar 100 muestras de datos en formato de 32 bits
 // Para solucionar esto, se truncará el 16-bit MSB de los datos muestreados. Las muestras se vuelven de 16 bits.
 uint16_t irBuffer[100];  // Datos del LED infrarrojo
